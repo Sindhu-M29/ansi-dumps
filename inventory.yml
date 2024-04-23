@@ -1,0 +1,5 @@
+all:
+  hosts:
+    20.119.97.109:
+      ansible_user: azureuser
+      ansible_password: Azureuser@29
