@@ -1,0 +1,13 @@
+---
+- name: Check SSH connectivity
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Attempt SSH connection
+      wait_for:
+        host: "{{ ansible_host }}"
+        port: 22
+        state: started
+        timeout: 5
+      delegate_to: localhost
+      ignore_errors: yes
