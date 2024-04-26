@@ -1,0 +1,14 @@
+---
+- name: Deploy PHP code to Azure VMs
+  hosts: all
+  become: true
+  vars:
+    php_code_source: /home/azureuser/php/info1.php
+    php_destination: /home/azureuser
+  tasks:
+    - name: Copy PHP code to VMs
+      ansible.builtin.copy:
+        src: "{{ php_code_source }}"
+        dest: "{{ php_destination }}"
+        remote_src: yes
+      delegate_to: 20.119.97.109
